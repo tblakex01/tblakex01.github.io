@@ -2,22 +2,148 @@
 layout: default
 ---
 
-<div class="home">
+<div class="wrapper">
 
-  <h1 class="page-heading">Posts</h1>
+  <section class="cover">
+    <div class="cover__kicker">Portfolio · Open Index · {{ site.established }}</div>
 
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+    <h1 class="cover__headline">
+      Cloud infrastructure, <em>AI agents,</em> and a 3D chess game you can actually play.
+    </h1>
 
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
+    <p class="cover__lede">
+      An index of works by <strong>Anthony M.</strong> — software built across
+      cloud platforms, machine learning, and the occasional thing that has no
+      business existing but does anyway. Each entry below links to the source.
+      Each one ships, runs, and is meant to be read.
+    </p>
 
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+    <div class="meta-table" role="table" aria-label="Profile metadata">
+      <div class="meta-table__row" role="row">
+        <div class="meta-table__label" role="rowheader">Role</div>
+        <div class="meta-table__value" role="cell">Engineer · Builder</div>
+      </div>
+      <div class="meta-table__row" role="row">
+        <div class="meta-table__label" role="rowheader">Works</div>
+        <div class="meta-table__value" role="cell">{{ site.data.projects | size }} · including refs</div>
+      </div>
+      <div class="meta-table__row" role="row">
+        <div class="meta-table__label" role="rowheader">Focus</div>
+        <div class="meta-table__value" role="cell">Cloud · AI · Tooling</div>
+      </div>
+      <div class="meta-table__row" role="row">
+        <div class="meta-table__label" role="rowheader">Contact</div>
+        <div class="meta-table__value" role="cell"><a href="mailto:{{ site.email }}">{{ site.email }}</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-label="Abstract">
+    <div class="section__head">
+      <div class="section__num">§00</div>
+      <h2 class="section__title">Abstract</h2>
+    </div>
+
+    <div class="abstract">
+      <p>
+        Most of what I build sits in one of three rooms: <em>cloud platforms</em>
+        that have to behave under load, <em>AI systems</em> that have to behave under
+        ambiguity, and <em>small finished products</em> that have to behave under a
+        user. I prefer the kind of project where the boundary between "demo"
+        and "shipping" is enforced — where the thing either runs or it doesn't.
+      </p>
+      <p>
+        This page is the index. Each entry has a number, a year, a stack, and
+        a link back to the source. There is no separate writing section, no
+        blog, no newsletter. The work is the writing.
+      </p>
+    </div>
+
+    <blockquote class="pullquote">
+      I claim no breakthrough. <em>I claim a shape for the work and a record of it shipping.</em>
+    </blockquote>
+  </section>
+
+  <section class="section" aria-label="Index of works">
+    <div class="section__head">
+      <div class="section__num">§01</div>
+      <h2 class="section__title">Index of <em>Works</em></h2>
+    </div>
+
+    <div class="projects">
+      {% for p in site.data.projects %}
+      <article class="project">
+        <div class="project__strip">
+          <span class="project__num">№&nbsp;{{ p.number }}</span>
+          <span>{{ p.year }}</span>
+          <span class="dot">·</span>
+          <span>{{ p.kicker }}</span>
+        </div>
+
+        <h3 class="project__title">
+          <a href="{{ p.url }}" rel="noopener">{{ p.title }}</a>
+        </h3>
+
+        <p class="project__summary">{{ p.summary }}</p>
+
+        <p class="project__body">{{ p.body | strip_newlines }}</p>
+
+        <div class="project__foot">
+          <div class="project__tags">
+            {% for tag in p.tags %}
+            <span class="project__tag">{{ tag }}</span>
+            {% endfor %}
+          </div>
+          <a class="project__link" href="{{ p.url }}" rel="noopener">Read on GitHub →</a>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="section" aria-label="Disciplines">
+    <div class="section__head">
+      <div class="section__num">§02</div>
+      <h2 class="section__title">Disciplines</h2>
+    </div>
+
+    <div class="disciplines">
+      <div class="discipline">
+        <div class="discipline__label">Cloud · Platform</div>
+        <div class="discipline__title">Make it run.</div>
+        <ul class="discipline__list">
+          <li>AWS · Azure</li>
+          <li>Kubernetes · AKS</li>
+          <li>Terraform · HCL</li>
+          <li>Cognito · IAM</li>
+          <li>Networking · VPC / VNet</li>
+        </ul>
+      </div>
+
+      <div class="discipline">
+        <div class="discipline__label">AI · Machine Learning</div>
+        <div class="discipline__title">Make it think.</div>
+        <ul class="discipline__list">
+          <li>LLM agents · tool use</li>
+          <li>Real-time voice</li>
+          <li>Computer vision</li>
+          <li>OpenCV · MediaPipe</li>
+          <li>Pose &amp; motion tracking</li>
+        </ul>
+      </div>
+
+      <div class="discipline">
+        <div class="discipline__label">Tooling · Product</div>
+        <div class="discipline__title">Make it ship.</div>
+        <ul class="discipline__list">
+          <li>Python · TypeScript</li>
+          <li>JavaScript · Electron</li>
+          <li>Three.js · 3D</li>
+          <li>CLI &amp; automation</li>
+          <li>CI / scheduled jobs</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
 </div>
