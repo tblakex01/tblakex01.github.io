@@ -1,21 +1,25 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely need to edit after that.
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'jekyll serve'. If you change this file, please restart the server process.
+title: "Anthony M. — Portfolio"
+author: "Anthony M."
+short_name: "T. Blake"
+email: tristanblakeiv@gmail.com
+description: >
+  Index of works by Anthony M. — cloud infrastructure, AI agents,
+  and a 3D chess game you can actually play.
+baseurl: ""
+url: "https://tblakex01.github.io"
+github_username: tblakex01
 
-# Site settings
-title: InkJet Tech Blog
-email: email@inkjettech
-description: > # this means to ignore newlines until "baseurl:"
-  My awesome description for my new site will go here. I will edit this
-  line in _config.yml later. It will appear in my document head meta (for
-  Google search results) and in your feed.xml site description.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://yourdomain.com" # the base hostname & protocol for your site
-twitter_username: jekyllrb
-github_username:  jekyll
+sector: "SECTOR-04"
+edition: "MAINLINE"
+established: "2026"
+revision: "26.05"
+doc_id: "P26-001"
 
-# Build settings
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - .gitignore
+  - vendor
+
 markdown: kramdown

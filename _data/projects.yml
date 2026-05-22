@@ -1,0 +1,110 @@
+- number: "01"
+  year: "2025"
+  title: "Onyx Gambit"
+  kicker: "3D CHESS · ELECTRON · STOCKFISH"
+  language: "JavaScript"
+  summary: "A cinematic Electron 3D chess game wired up to a Stockfish engine."
+  body: >
+    A desktop chess game built in Electron with a fully 3D board, animated
+    pieces, and a Stockfish backend for adjustable AI strength. Designed
+    less as a toy and more as a small, finished product — install, open,
+    play.
+  tags:
+    - Electron
+    - Three.js
+    - Stockfish
+    - JavaScript
+  url: "https://github.com/tblakex01/onyx-gambit"
+
+- number: "02"
+  year: "2024"
+  title: "AI Phone Agent"
+  kicker: "VOICE · REAL-TIME · TYPESCRIPT"
+  language: "TypeScript"
+  summary: "A voice-based AI that holds real-time phone conversations."
+  body: >
+    A TypeScript service that places and receives phone calls, transcribes
+    speech in real time, plans responses against a Claude-class model, and
+    speaks back over the same line. Built around streaming audio rather
+    than turn-by-turn batching, so the agent can interrupt and be
+    interrupted like a person.
+  tags:
+    - TypeScript
+    - Twilio
+    - LLM
+    - Realtime
+  url: "https://github.com/tblakex01/ai-phone-agent"
+
+- number: "03"
+  year: "2024"
+  title: "PunchTracker"
+  kicker: "COMPUTER VISION · BOXING · PYTHON"
+  language: "Python"
+  summary: "A real-time boxing assistant that watches you train and counts the work."
+  body: >
+    Computer-vision pipeline that ingests a webcam feed, tracks pose and
+    hand motion, classifies punches by type (jab / cross / hook / uppercut),
+    and surfaces tempo and combination metrics live on screen. Built so a
+    solo boxer at home gets the same kind of feedback a coach would call
+    from the corner.
+  tags:
+    - Python
+    - OpenCV
+    - MediaPipe
+    - ML
+  url: "https://github.com/tblakex01/PunchTracker-AI-Boxing-Assistant"
+
+- number: "04"
+  year: "2023"
+  title: "AKS Module Example"
+  kicker: "TERRAFORM · AZURE · PRIVATE NETWORKING"
+  language: "HCL"
+  summary: "Production-ready Azure Kubernetes Service deployment, all in Terraform."
+  body: >
+    Reference Terraform module for spinning up an AKS cluster with private
+    networking, hardened defaults, separate node pools, and the supporting
+    Azure plumbing (VNets, identities, ACR, monitoring) wired in. Written
+    as a worked example, not a toy — usable as the foundation of an actual
+    platform.
+  tags:
+    - Terraform
+    - Azure
+    - AKS
+    - Networking
+  url: "https://github.com/tblakex01/aks-module-example"
+
+- number: "05"
+  year: "2023"
+  title: "Cognito Attribute Exporter"
+  kicker: "AWS · COGNITO · PYTHON"
+  language: "Python"
+  summary: "A polite, paginated exporter for AWS Cognito user-pool attributes."
+  body: >
+    A CLI that walks every user in a Cognito user pool, pulls their
+    attributes, and writes them to disk — with exponential backoff,
+    pagination, and resumability so it survives rate limits on large
+    tenants. The kind of tool you reach for once and then quietly keep.
+  tags:
+    - Python
+    - AWS
+    - Cognito
+    - CLI
+  url: "https://github.com/tblakex01/Cognito-Attribute-Exporter"
+
+- number: "06"
+  year: "2022"
+  title: "IAM Key Rotation"
+  kicker: "AWS · SECURITY · PYTHON"
+  language: "Python"
+  summary: "A small set of AWS IAM hygiene tools — rotate keys, reset passwords, stay clean."
+  body: >
+    A focused toolkit for the boring-but-critical IAM tasks: rotating
+    access keys on a schedule, resetting console passwords, reporting on
+    stale credentials. Built to be run from CI on a cron, so the security
+    posture improves whether anyone is watching or not.
+  tags:
+    - Python
+    - AWS
+    - IAM
+    - Security
+  url: "https://github.com/tblakex01/iam-key-rotation"

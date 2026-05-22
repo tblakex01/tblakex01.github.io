@@ -1,38 +1,36 @@
-<footer class="site-footer">
-
+<footer class="colophon">
   <div class="wrapper">
-
-    <h2 class="footer-heading">{{ site.title }}</h2>
-
-    <div class="footer-col-wrapper">
-      <div class="footer-col footer-col-1">
-        <ul class="contact-list">
-          <li>{{ site.title }}</li>
+    <div class="colophon__rule"></div>
+    <div class="colophon__grid">
+      <div class="colophon__col">
+        <div class="colophon__label mono">Colophon</div>
+        <p class="colophon__body">
+          Set in Newsreader and JetBrains Mono. Hand-built on Jekyll, served
+          by GitHub Pages, printed nowhere. Source is open at the link below
+          — fork it, mark it up, send it back.
+        </p>
+      </div>
+      <div class="colophon__col">
+        <div class="colophon__label mono">Contact</div>
+        <ul class="colophon__list mono">
           <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+          <li><a href="https://github.com/{{ site.github_username }}">github.com/{{ site.github_username }}</a></li>
         </ul>
       </div>
-
-      <div class="footer-col footer-col-2">
-        <ul class="social-media-list">
-          {% if site.github_username %}
-          <li>
-            {% include icon-github.html username=site.github_username %}
-          </li>
-          {% endif %}
-
-          {% if site.twitter_username %}
-          <li>
-            {% include icon-twitter.html username=site.twitter_username %}
-          </li>
-          {% endif %}
+      <div class="colophon__col">
+        <div class="colophon__label mono">Imprint</div>
+        <ul class="colophon__list mono">
+          <li>DOC&nbsp;{{ site.doc_id }}</li>
+          <li>REV.&nbsp;{{ site.revision }}&nbsp;/&nbsp;OPEN</li>
+          <li>{{ site.sector }}&nbsp;·&nbsp;{{ site.edition }}</li>
+          <li>CC&nbsp;BY-ND&nbsp;4.0</li>
         </ul>
-      </div>
-
-      <div class="footer-col footer-col-3">
-        <p>{{ site.description }}</p>
       </div>
     </div>
-
+    <div class="colophon__footnote mono">
+      <span>&copy; {{ site.established }} {{ site.author }}</span>
+      <span class="dot">·</span>
+      <span>OPEN&nbsp;DISTRIBUTION</span>
+    </div>
   </div>
-
 </footer>
