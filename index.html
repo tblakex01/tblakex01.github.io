@@ -4,7 +4,7 @@ layout: default
 
 <div class="wrapper">
 
-  <section class="cover">
+  <section class="cover" data-reveal>
     <div class="cover__kicker">Portfolio · Open Index · {{ site.established }}</div>
 
     <h1 class="cover__headline">
@@ -38,7 +38,7 @@ layout: default
     </div>
   </section>
 
-  <section class="section" aria-label="Abstract">
+  <section class="section" aria-label="Abstract" data-reveal>
     <div class="section__head">
       <div class="section__num">§00</div>
       <h2 class="section__title">Abstract</h2>
@@ -64,7 +64,7 @@ layout: default
     </blockquote>
   </section>
 
-  <section class="section" aria-label="Index of works">
+  <section class="section" aria-label="Index of works" data-reveal>
     <div class="section__head">
       <div class="section__num">§01</div>
       <h2 class="section__title">Index of <em>Works</em></h2>
@@ -72,36 +72,41 @@ layout: default
 
     <div class="projects">
       {% for p in site.data.projects %}
-      <article class="project">
-        <div class="project__strip">
+      <article class="project" data-reveal>
+        <div class="project__index" aria-hidden="true">
           <span class="project__num">№&nbsp;{{ p.number }}</span>
-          <span>{{ p.year }}</span>
-          <span class="dot">·</span>
-          <span>{{ p.kicker }}</span>
+          <span class="project__year">{{ p.year }}</span>
         </div>
 
-        <h3 class="project__title">
-          <a href="{{ p.url }}" rel="noopener">{{ p.title }}</a>
-        </h3>
+        <div class="project__main">
+          <div class="project__kicker">{{ p.kicker }}</div>
 
-        <p class="project__summary">{{ p.summary }}</p>
+          <h3 class="project__title">
+            <a href="{{ p.url }}" rel="noopener">{{ p.title }}</a>
+          </h3>
 
-        <p class="project__body">{{ p.body | strip_newlines }}</p>
+          <p class="project__summary">{{ p.summary }}</p>
 
-        <div class="project__foot">
-          <div class="project__tags">
-            {% for tag in p.tags %}
-            <span class="project__tag">{{ tag }}</span>
-            {% endfor %}
+          <p class="project__body">{{ p.body | strip_newlines }}</p>
+
+          <div class="project__foot">
+            <div class="project__tags">
+              {% for tag in p.tags %}
+              <span class="project__tag">{{ tag }}</span>
+              {% endfor %}
+            </div>
+            <a class="project__link" href="{{ p.url }}" rel="noopener">
+              <span>Read on GitHub</span>
+              <span class="project__arrow" aria-hidden="true">→</span>
+            </a>
           </div>
-          <a class="project__link" href="{{ p.url }}" rel="noopener">Read on GitHub →</a>
         </div>
       </article>
       {% endfor %}
     </div>
   </section>
 
-  <section class="section" aria-label="Disciplines">
+  <section class="section" aria-label="Disciplines" data-reveal>
     <div class="section__head">
       <div class="section__num">§02</div>
       <h2 class="section__title">Disciplines</h2>
