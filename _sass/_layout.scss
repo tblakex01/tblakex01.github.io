@@ -105,10 +105,12 @@
   letter-spacing: -0.022em;
   color: $ink;
   margin: 0 0 36px 0;
+  text-wrap: balance;
 
   em {
     font-style: italic;
     font-weight: 500;
+    color: $accent;
   }
 }
 
@@ -119,6 +121,7 @@
   color: $ink-soft;
   max-width: 60ch;
   margin-bottom: 44px;
+  text-wrap: pretty;
 
   strong { font-weight: 600; color: $ink; }
 }
@@ -210,8 +213,9 @@
   font-weight: 500;
   letter-spacing: -0.012em;
   line-height: 1.1;
+  text-wrap: balance;
 
-  em { font-style: italic; }
+  em { font-style: italic; color: $accent; }
 }
 
 @include mobile {
@@ -224,6 +228,7 @@
   font-size: 17.5px;
   line-height: 1.6;
   color: $ink-soft;
+  text-wrap: pretty;
 }
 
 .pullquote {
@@ -243,29 +248,64 @@
 .projects { display: block; }
 
 .project {
-  padding: 32px 0 36px 0;
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 16px;
+  position: relative;
+  padding: 34px 0 36px 0;
   border-bottom: 1px solid $rule;
+  transition: border-color 200ms ease;
 
   &:last-child { border-bottom: 0; }
+
+  /* accent rule that grows in the gutter on hover */
+  &::before {
+    content: "";
+    position: absolute;
+    left: calc(-1 * #{$gutter});
+    top: 34px;
+    width: 3px;
+    height: 0;
+    background: $accent;
+    transition: height 260ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  &:hover {
+    border-bottom-color: $rule-soft;
+
+    &::before { height: calc(100% - 70px); }
+    .project__num { color: $ink; }
+    .project__title a { color: $accent; }
+    .project__arrow { transform: translateX(4px); }
+  }
 }
 
-.project__strip {
+.project__index {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0;
-  align-items: baseline;
-  margin-bottom: 14px;
+  flex-direction: column;
+  gap: 4px;
   font-family: $mono;
   font-size: 11px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: $muted;
+  padding-top: 6px;
 }
 
 .project__num {
   color: $accent;
   font-weight: 500;
-  margin-right: 0.6em;
+  transition: color 200ms ease;
+}
+
+.project__year { color: $muted; }
+
+.project__kicker {
+  font-family: $mono;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: $muted;
+  margin-bottom: 12px;
 }
 
 .project__title {
@@ -276,10 +316,12 @@
   letter-spacing: -0.018em;
   color: $ink;
   margin-bottom: 14px;
+  text-wrap: balance;
 
   a {
     border-bottom: 0;
     color: $ink;
+    transition: color 200ms ease;
     &:hover { color: $accent; }
   }
 }
@@ -292,6 +334,7 @@
   color: $ink-soft;
   margin-bottom: 14px;
   max-width: 60ch;
+  text-wrap: pretty;
 }
 
 .project__body {
@@ -299,14 +342,15 @@
   line-height: 1.6;
   color: $ink-soft;
   max-width: 62ch;
-  margin-bottom: 18px;
+  margin-bottom: 20px;
+  text-wrap: pretty;
 }
 
 .project__foot {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
   gap: 18px;
 }
 
@@ -326,9 +370,19 @@
   border: 1px solid $rule;
   border-radius: 2px;
   background: rgba(255,255,255,0.18);
+  transition: color 160ms ease, border-color 160ms ease, background-color 160ms ease;
+
+  &:hover {
+    color: $accent;
+    border-color: $accent;
+    background: $accent-soft;
+  }
 }
 
 .project__link {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5em;
   font-family: $mono;
   font-size: 11px;
   letter-spacing: 0.16em;
@@ -338,7 +392,26 @@
   padding-bottom: 2px;
   white-space: nowrap;
 
-  &:hover { color: $accent; border-color: $accent; }
+  &:hover {
+    color: $accent;
+    border-color: $accent;
+    .project__arrow { transform: translateX(4px); }
+  }
+}
+
+.project__arrow {
+  display: inline-block;
+  transition: transform 200ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@include mobile {
+  .project {
+    grid-template-columns: 1fr;
+    gap: 12px;
+
+    &::before { display: none; }
+  }
+  .project__index { flex-direction: row; gap: 0.6em; padding-top: 0; }
 }
 
 /* ─────────── Disciplines ─────────── */
@@ -346,8 +419,18 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 28px 32px;
-  border-top: 1px solid $rule;
-  padding-top: 28px;
+  padding-top: 8px;
+}
+
+.discipline {
+  padding-top: 16px;
+  border-top: 2px solid $rule-soft;
+  transition: border-color 200ms ease;
+
+  &:hover {
+    border-top-color: $accent;
+    .discipline__label { color: $accent; }
+  }
 }
 
 .discipline__label {
@@ -357,6 +440,7 @@
   text-transform: uppercase;
   color: $muted;
   margin-bottom: 12px;
+  transition: color 200ms ease;
 }
 
 .discipline__title {
@@ -440,4 +524,16 @@
 @include mobile {
   .colophon__grid { grid-template-columns: 1fr; }
   .colophon__footnote { flex-direction: column; align-items: flex-start; gap: 4px; }
+}
+
+/* ─────────── Scroll reveal (progressive enhancement) ─────────── */
+.reveal-ready [data-reveal] {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 620ms ease, transform 620ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-ready [data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
 }

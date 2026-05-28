@@ -23,3 +23,6 @@ exclude:
   - vendor
 
 markdown: kramdown
+
+sass:
+  style: compressed
